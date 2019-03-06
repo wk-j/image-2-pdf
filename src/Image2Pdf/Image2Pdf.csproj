@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageId>wk.Image2Pdf</PackageId>
+        <AssemblyName>wk.Image2Pdf</AssemblyName>
+        <NoWarn>NU1701</NoWarn>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="iTextSharp" Version="5.5.13" />
+        <PackageReference Include="itextsharp.pdfa" Version="5.5.13" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    </ItemGroup>
+</Project>
