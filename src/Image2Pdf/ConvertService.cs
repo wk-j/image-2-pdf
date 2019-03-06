@@ -18,15 +18,16 @@ namespace Image2Pdf {
         private PathService _pathService;
         private TiffConverter _tiff;
 
-        public ConvertService(ILogger<ConvertService> logger, Quality quality, PathService pathService, TiffConverter tiff) {
+        public ConvertService(
+            ILogger<ConvertService> logger,
+            Quality quality,
+            PathService pathService,
+            TiffConverter tiff) {
+
             _logger = logger;
             _quality = quality;
             _tiff = tiff;
             _pathService = pathService;
-        }
-
-        public String GetFinalTifFile() {
-            return _finalTifFile;
         }
 
         public async Task<List<String>> CompressImagesAsync(List<String> sources) {

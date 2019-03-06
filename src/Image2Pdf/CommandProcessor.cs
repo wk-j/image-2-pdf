@@ -20,7 +20,7 @@ namespace Image2Pdf {
 
             _logger.LogInformation("command length - {0}", command.Length + args.Length);
 
-            if (args.Length > MaxCommandLength && false) {
+            if (args.Length > MaxCommandLength) {
                 _logger.LogError("command line to long ...");
                 _logger.LogError("{0} {1}", command, args);
 

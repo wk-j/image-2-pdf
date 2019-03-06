@@ -13,25 +13,23 @@ namespace Image2Pdf {
             _imagePath = new DirectoryInfo(imagePath).FullName;
         }
 
-        public String Quote(String source) {
-            return $@"""{source}""";
-        }
+        public String Quote(String source) =>
+            $@"""{source}""";
 
-        public string GetTempPath() {
-            return _tempPath;
-        }
+        public string GetTempPath =>
+            _tempPath;
 
-        private string Now() => DateTime.Now.ToString("yyyyMMdd");
+        private string Now() =>
+            DateTime.Now.ToString("yyyyMMdd");
 
-        public string GetCompressPath() {
-            return Path.Combine(_tempPath, "__compress__");
-        }
+        public string GetCompressPath() =>
+            Path.Combine(_tempPath, "__compress__");
 
-        public string GetFinalPath(string id) {
-            return Path.Combine(_tempPath, "__final__", id);
-        }
+        public string GetFinalPath(string id) =>
+            Path.Combine(_tempPath, "__final__", id);
 
-        public string GetImagePath() => _imagePath;
+        public string GetImagePath() =>
+            _imagePath;
 
         public String GetConvertPath() {
             if (Environment.OSVersion.Platform == PlatformID.Unix) {
@@ -41,12 +39,10 @@ namespace Image2Pdf {
         }
 
         public String GetIdentifyPath() {
-
             if (Environment.OSVersion.Platform == PlatformID.Unix) {
                 return Path.Combine(_magickPath, "identify");
             }
             return Quote(Path.Combine(_magickPath, "identify.exe"));
         }
     }
-
 }

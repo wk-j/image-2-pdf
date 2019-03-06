@@ -15,9 +15,8 @@ namespace Image2Pdf {
             _pathService = pathService;
         }
 
-        private IEnumerable<string> Quote(IEnumerable<string> input) {
-            return input.Select(d => $@"""{d}""").ToList();
-        }
+        private IEnumerable<string> Quote(IEnumerable<string> input) =>
+            input.Select(d => $@"""{d}""").ToList();
 
         public CommandResult ProcessDensity(List<string> _inputs, String target, int dpi, bool compress) {
             var convert = _pathService.GetConvertPath();
@@ -37,14 +36,15 @@ namespace Image2Pdf {
             var fullCommand = String.Format("{0} {1}", convert, command);
             var result = _processor.Process(convert, command, workingDir);
 
-            if (!result.Success) return result;
+            if (!result.Success) {
+                return result;
 
-            else {
+            } else {
+                var file = new FileInfo(target);
+
                 if (result.Error.Length > 0) {
                     return new CommandResult { Success = false };
                 }
-
-                var file = new FileInfo(target);
 
                 if (!file.Exists) {
                     return new CommandResult { Success = false };
@@ -54,7 +54,6 @@ namespace Image2Pdf {
                     return new CommandResult { Success = false };
                 }
             }
-
             return new CommandResult { Success = true };
         }
     }
